@@ -78,7 +78,7 @@ const Footer = () => {
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-start">
           {/* Left Side - Description */}
           <motion.p
-            className="text-gray text-lg max-w-md"
+            className="text-gray text-lg max-w-md mt-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -96,7 +96,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg text-gray mb-2">Contact us</h4>
+            <h4 className="text-lg text-gray mb-2 mt-10">Contact us</h4>
             <ul className="space-y-1 text-2xl">
               <li>
                 <a
@@ -126,7 +126,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg text-gray mb-2">Follow us</h4>
+            <h4 className="text-lg text-gray mb-2 mt-10">Follow us</h4>
             <ul className="space-y-1 text-2xl">
               <li>
                 <a href="#" className="hover:text-white">
