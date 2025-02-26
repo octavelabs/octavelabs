@@ -43,18 +43,27 @@ const Footer = () => {
               *Warning: Collaborating with Octave Labs may lead to game-changing
               results. Think big!*
             </p>
-            <motion.button
-              className="px-4 sm:px-8 py-2.5 lg:py-3.5 text-[#0E0F10] rounded-2xl shadow-md transition cursor-pointer"
-              style={{
-                background:
-                  "linear-gradient(177.74deg, #DEDEFF -29.85%, #E9E9E9 61.42%)",
-                transition: "all 0.3s ease-in-out",
-              }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <a
+              href="https://calendly.com/clintonadabanya/30min"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Book an intro call
-            </motion.button>
+              <motion.button
+                className="px-4 sm:px-8 py-2.5 lg:py-3.5 text-[#0E0F10] rounded-2xl shadow-md transition cursor-pointer"
+                style={{
+                  background:
+                    "linear-gradient(177.74deg, #DEDEFF -29.85%, #E9E9E9 61.42%)",
+                  transition: "all 0.3s ease-in-out",
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0px 2px 5px rgba(255, 255, 255, 0.2)",
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Book an intro call
+              </motion.button>
+            </a>
           </motion.div>
         </div>
       </motion.div>
@@ -98,7 +107,12 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <a
+                  href="https://calendly.com/clintonadabanya/30min"
+                  className="hover:text-white"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Book a call
                 </a>
               </li>

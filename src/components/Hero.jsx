@@ -35,10 +35,10 @@ const Hero = () => {
   }, [index, line]);
 
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen px-6 bg-primary-bg text-white">
+    <section className="relative flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 bg-primary-bg text-white overflow-x-hidden">
       {/* Navbar */}
       <motion.div
-        className="absolute top-6 lg:top-24 left-0 right-0"
+        className="fixed top-0 py-8 left-0 right-0 w-full bg-primary-bg z-50 shadow-md"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -52,27 +52,40 @@ const Hero = () => {
             backgroundSize: "400px",
           }}
         >
-          <div className="w-40">
+          {/* Logo */}
+          <div className="w-40 md:w-44 lg:w-48">
             <img src={FullLogo} alt="Octave Labs Logo" className="w-full" />
           </div>
 
-          <motion.button
-            className="px-4 sm:px-8 py-2.5 lg:py-3.5 text-[#0E0F10] rounded-2xl shadow-md transition cursor-pointer"
-            style={{
-              background:
-                "linear-gradient(177.74deg, #DEDEFF -29.85%, #E9E9E9 61.42%)",
-            }}
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+          {/* Call to Action */}
+          <a
+            href="https://calendly.com/clintonadabanya/30min"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Book a call
-          </motion.button>
+            <motion.button
+              className="px-4 sm:px-8 py-2.5 lg:py-3.5 text-[#0E0F10] rounded-2xl shadow-md transition cursor-pointer"
+              style={{
+                background:
+                  "linear-gradient(177.74deg, #DEDEFF -29.85%, #E9E9E9 61.42%)",
+              }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 2px 5px rgba(255, 255, 255, 0.2)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              Book a call
+            </motion.button>
+          </a>
         </div>
       </motion.div>
 
       {/* Content Section */}
-      <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between mt-32 gap-12 px-6">
+      <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between mt-32 gap-12 px-4 sm:px-6">
         {/* Text Content */}
         <motion.div
           className="max-w-3xl text-center lg:text-left"
