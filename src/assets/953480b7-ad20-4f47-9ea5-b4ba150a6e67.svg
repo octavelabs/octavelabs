@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="5.41245" height="5.41245" viewBox="0 0 5.41245 5.41245" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="help-circle" clip-path="url(#clip0_0_288)">
+<path id="Icon" d="M2.04997 2.02967C2.10299 1.87895 2.20764 1.75185 2.34539 1.6709C2.48313 1.58994 2.64509 1.56035 2.80256 1.58736C2.96004 1.61437 3.10287 1.69624 3.20577 1.81848C3.30866 1.94071 3.36498 2.09541 3.36474 2.25519C3.36474 2.70623 2.68818 2.93174 2.68818 2.93174M2.70623 3.83382H2.70848M4.96141 2.70623C4.96141 3.95173 3.95173 4.96141 2.70623 4.96141C1.46072 4.96141 0.451038 3.95173 0.451038 2.70623C0.451038 1.46072 1.46072 0.451038 2.70623 0.451038C3.95173 0.451038 4.96141 1.46072 4.96141 2.70623Z" stroke="url(#paint0_linear_0_288)" stroke-width="0.300692" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_288" x1="2.94909" y1="-3.34178" x2="2.94909" y2="9.67681" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4E9CA3"/>
+<stop offset="0.379" stop-color="#E1A837"/>
+<stop offset="0.629" stop-color="#E94F37"/>
+<stop offset="0.924" stop-color="#2A5674"/>
+</linearGradient>
+<clipPath id="clip0_0_288">
+<rect width="5.41245" height="5.41245" fill="white"/>
+</clipPath>
+</defs>
+</svg>
