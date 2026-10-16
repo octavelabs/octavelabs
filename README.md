@@ -100,3 +100,9 @@ Set these project environment variables for Production and Preview as needed:
 Redeploy after changing environment variables. Missing email configuration returns an honest 503 response from the form; it does not prevent pages or images from loading. The existing process-local limiter is best-effort across serverless instances; use Vercel’s shared rate-limiting controls for cross-instance enforcement.
 
 The standalone `npm start` server remains available for other Node hosts.
+
+### Deployment ownership
+
+For the Vercel project hosted under `adabanyac`, merge deployment PRs using the GitHub account connected to that Vercel owner (`AdabanyaC`). On Hobby, Vercel requires the commit author to be the project team's owner; repository collaborator access alone does not grant deployment access. See [Vercel's collaboration requirements](https://vercel.com/docs/deployments/troubleshoot-project-collaboration).
+
+If a deployment is **Blocked**, open its details and check the stated reason before changing application code. A blocked deployment has not verified the build or runtime fix. After an owner-authored merge, confirm the new `master` deployment is **Ready** and check the homepage and a case-study page.
