@@ -88,5 +88,15 @@ Landlord (formerly Naija Tycoon) is available at `/landlord.html`. Featured Work
 ## Breed mobile and light mode
 Breed uses light-mode product captures throughout. Its mobile section includes six owner-supplied screenshots in two groups, with full-proportion frames, captions, and image enlargement. Desktop and 390px mobile layouts were checked. Capture provenance is recorded in `src/assets/breed/SOURCE.md`.
 
-## Hosting migration
-This version replaces the earlier React/Vite implementation. Use `npm run build` for the static `dist/` output. The booking endpoint requires the included Node server; a static-only deployment cannot deliver enquiries. Existing hosting settings that explicitly select Vite need updating before deployment. Configure Resend credentials on the host, never in this repository.
+## Deploy on Vercel
+
+The committed `vercel.json` selects the **Other** framework, runs `npm run build`, and serves `dist/` directly from Vercel’s CDN. Only `/api/bookings` invokes a Node function, using the same validation and Resend logic as the local server. Do not configure a catch-all rewrite to `server.mjs` or use the standalone Node server as the Vercel entry point.
+
+Set these project environment variables for Production and Preview as needed:
+- `RESEND_API_KEY`: your Resend key.
+- `RESEND_FROM_EMAIL`: `Octave labs <bookings@octavelabs.co>` after domain verification.
+- `BOOKING_TO_EMAIL`: `clinton@octavelabs.co`.
+
+Redeploy after changing environment variables. Missing email configuration returns an honest 503 response from the form; it does not prevent pages or images from loading. The existing process-local limiter is best-effort across serverless instances; use Vercel’s shared rate-limiting controls for cross-instance enforcement.
+
+The standalone `npm start` server remains available for other Node hosts.
