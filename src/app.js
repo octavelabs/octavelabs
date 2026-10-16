@@ -163,3 +163,18 @@ window.addEventListener('resize', sizePricing);
 reducedMotion.addEventListener('change', sizePricing);
 document.fonts.ready.then(sizePricing);
 sizePricing();
+
+// Scale the complete phone composition, including its authored travel distances.
+const mobileArtwork = document.querySelector('.mobile-motion');
+if (mobileArtwork) {
+  const sizeMobileArtwork = () => {
+    const scale = Math.min(mobileArtwork.clientWidth / 533.333, mobileArtwork.clientHeight / 400);
+    if (scale > 0) mobileArtwork.style.setProperty('--phone-scale', String(scale));
+  };
+  new ResizeObserver(sizeMobileArtwork).observe(mobileArtwork);
+  sizeMobileArtwork();
+  const mobileService = mobileArtwork.closest('.service');
+  new IntersectionObserver(entries => {
+    mobileService.classList.toggle('motion-in-view', entries[0].isIntersecting);
+  }).observe(mobileService);
+}
