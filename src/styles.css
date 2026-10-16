@@ -1637,3 +1637,75 @@ body:has(dialog[open]) {
  .service.is-open .service-description,.revised-service.is-open .revised-art,.process-card.is-revealed .art-477 > :is([data-name^="ChatGPT Image"], [data-name="Rocket"]) { animation:none; }
  .process-card.awaiting-reveal { opacity:1; transform:none; }
 }
+
+/* Mobile phones share Figma's 533 × 400 coordinate space. Layout scaling
+   stays on the plane; independent translation stays on each phone. */
+#service-1 .mobile-motion {
+  animation: none;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+}
+.mobile-motion-plane {
+  position: absolute;
+  width: 533.333px;
+  height: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(var(--phone-scale, .7));
+}
+.mobile-phone { position: absolute; inset: 0; }
+.mobile-phone img { position: absolute; max-width: none; }
+.mobile-phone-breed { --phone-mask: url("assets/mobile-motion/breed-mask.svg"); }
+.mobile-phone-sabiplay { --phone-mask: url("assets/mobile-motion/sabiplay-mask.svg"); }
+.phone-body, .phone-frame {
+  object-fit: cover;
+  mask-image: var(--phone-mask);
+  mask-repeat: no-repeat;
+  mask-mode: alpha;
+}
+.mobile-phone-breed :is(.phone-body, .phone-frame) {
+  left: -13.49px; top: 3.8px; width: 694.009px; height: 390.38px;
+  mask-position: 139.852px -17.335px; mask-size: 414.301px 414.301px;
+}
+.mobile-phone-breed .phone-frame { top: 3.97px; mask-position: 139.855px -17.509px; }
+.phone-screen { mask-repeat: no-repeat; mask-mode: alpha; mask-composite: intersect; }
+.mobile-phone-breed .phone-screen {
+  left: 207.19px; top: 39.83px; width: 234.605px; height: 324.725px;
+  mask-image: var(--phone-mask), url("assets/mobile-motion/breed-screen-mask.png");
+  mask-position: -80.82px -53.368px, -220.676px -35.859px;
+  mask-size: 414.301px 414.301px, 694.01px 390.38px;
+}
+.mobile-phone-sabiplay :is(.phone-body, .phone-frame) {
+  left: -168.03px; top: 4.52px; width: 714.724px; height: 402.032px;
+  mask-position: 144.029px -17.852px; mask-size: 426.666px 426.667px;
+}
+.mobile-phone-sabiplay .phone-frame { top: 4.7px; mask-position: 144.029px -18.03px; }
+/* The source screen mask faces right; Figma mirrors it for the left phone.
+   Counter-mirror the screen artwork so text retains its original orientation. */
+.mobile-phone-sabiplay .phone-screen-mask {
+  position: absolute; left: -168.02px; top: 4.7px;
+  width: 714.725px; height: 402.032px;
+  mask: url("assets/mobile-motion/sabiplay-screen-mask.png") 0 0 / 100% 100% no-repeat;
+  transform: scaleX(-1);
+}
+.mobile-phone-sabiplay .phone-screen {
+  left: 227.097px; top: 37.029px; width: 241.808px; height: 334.419px;
+  transform: scaleX(-1);
+}
+/* Exact two-second Figma timeline: Sabiplay leads; Breed follows at .5s. */
+#service-1.is-open .mobile-phone-breed { animation: mobile-breed-rise 2s linear infinite; }
+#service-1.is-open .mobile-phone-sabiplay { animation: mobile-sabiplay-rise 2s linear infinite; }
+@keyframes mobile-breed-rise {
+  0% { translate: 0 300px; }
+  25% { animation-timing-function: ease-out; translate: 0 300px; }
+  75%, 100% { translate: 0 0; }
+}
+@keyframes mobile-sabiplay-rise {
+  0% { translate: 0 100px; }
+  2.5% { animation-timing-function: ease-out; translate: 0 100px; }
+  52.5%, 100% { translate: 0 0; }
+}
+#service-1:not(.motion-in-view) .mobile-phone { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  #service-1.is-open .mobile-phone { animation: none; translate: 0 0; }
+}
